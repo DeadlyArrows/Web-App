@@ -1,0 +1,23 @@
+.card {
+  height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}
+
+mat-card-title,
+mat-card-subtitle,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+.button-center {
+  display: flex;
+  justify-content: center;
+}

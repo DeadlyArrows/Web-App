@@ -1,0 +1,26 @@
+<p>
+  <mat-toolbar>
+    <!-- NAME -->
+    <span>Wheel Manager</span>
+    <span class="spacer"></span>
+    <!-- NAME -->
+    <nav mat-tab-nav-bar>
+      <a mat-tab-link (click)="toSignIn()" [active]="activeLink == links[0]">
+        <mat-icon class="material-icons">login</mat-icon>
+        Login
+      </a>
+      <a mat-tab-link (click)="toSignUp()" [active]="activeLink1 == links[1]">
+        <mat-icon class="material-icons">person_add</mat-icon>
+        Sign-Up
+      </a>
+      <!-- <a mat-tab-link (click)="toSignIn()" >
+        <mat-icon class="material-icons">login</mat-icon>
+        Login
+      </a>
+      <a mat-tab-link (click)="toSignUp()" >
+        <mat-icon class="material-icons">person_add</mat-icon>
+        Sign-Up
+      </a> -->
+    </nav>
+  </mat-toolbar>
+</p>
