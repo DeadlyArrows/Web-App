@@ -19,7 +19,15 @@ export class SignInComponent implements OnInit {
     private customerService: CustomerService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loadDataCustomers();
+  }
+
+  loadDataCustomers() {
+    this.customerService
+      .getCustomerList()
+      .subscribe((customers) => (this.customers = customers));
+  }
 
   searchAddressesByEmailAndPassword() {
     this.customerService
@@ -27,7 +35,11 @@ export class SignInComponent implements OnInit {
       .subscribe((customer) => {
         console.log(customer);
         this.customer = customer;
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['dashboard', customer.id]);
       });
   }
+
+  // loadCustomer(customer: Customer) {
+  //   this.router.navigate(['dashboard', customer.id]);
+  // }
 }

@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+  
   links = ['sign-in', 'sign-up'];
   activeLink = 'sign-in';
   activeLink1 = 'sign-up';
