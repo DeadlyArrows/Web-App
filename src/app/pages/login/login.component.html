@@ -1,0 +1,269 @@
+<!-- -------------------------------- TITLE -------------------------------- -->
+<mat-toolbar color="primary" class="toolbar">
+  <span>Wheel Manager</span>
+</mat-toolbar>
+<!-- ------------------------------ END TITLE ------------------------------ -->
+<mat-tab-group mat-align-tabs="end">
+  <!-- -------------------------------- LOGIN -------------------------------- -->
+  <mat-tab>
+    <!-- ------------------------------- HEADER -------------------------------- -->
+    <ng-template mat-tab-label>
+      <mat-icon class="tab-icon">login</mat-icon>
+      Login
+    </ng-template>
+    <!-- ----------------------------- END HEADER ------------------------------ -->
+    <div class="card">
+      <mat-card>
+        <!-- -------------------------------- TITLE -------------------------------- -->
+        <mat-card-title>Login</mat-card-title>
+        <!-- -------------------------------- END TITLE -------------------------------- -->
+        <!-- -------------------------------- IMAGE -------------------------------- -->
+        <mat-card-subtitle>
+          <img mat-card-lg-image src="../assets/Logo.png" alt="" />
+        </mat-card-subtitle>
+        <!-- ------------------------------ END IMAGE ------------------------------ -->
+        <mat-card-content>
+          <form (ngSubmit)="searchAddressesByEmailAndPassword()">
+            <!-- -------------------------------- EMAIL -------------------------------- -->
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Email Address</mat-label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  matInput
+                  required
+                  [(ngModel)]="email"
+                  placeholder="name@example.com"
+                />
+                <mat-icon matSuffix>email</mat-icon>
+              </mat-form-field>
+            </p>
+            <!-- ------------------------------ END EMAIL ------------------------------ -->
+            <!-- ------------------------------ PASSWORD ------------------------------- -->
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  matInput
+                  required
+                  [(ngModel)]="password"
+                  placeholder="Password"
+                />
+                <mat-icon matSuffix>password</mat-icon>
+              </mat-form-field>
+            </p>
+            <!-- ---------------------------- END PASSWORD ----------------------------- -->
+            <!-- ------------------------------- BUTTON -------------------------------- -->
+            <div class="button-center">
+              <button mat-stroked-button color="primary" type="submit">
+                Sign In
+              </button>
+            </div>
+            <!-- ------------------------------- END BUTTON -------------------------------- -->
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-tab>
+  <!-- ------------------------------ END LOGIN ------------------------------ -->
+  <!-- ------------------------------- SIGN UP ------------------------------- -->
+  <mat-tab>
+    <!-- ------------------------------- HEADER -------------------------------- -->
+    <ng-template mat-tab-label>
+      <mat-icon class="tab-icon">person_add</mat-icon>
+      Sign-Up
+    </ng-template>
+    <!-- ----------------------------- END HEADER ------------------------------ -->
+    <div class="card">
+      <mat-card>
+        <!-- -------------------------------- TITLE -------------------------------- -->
+        <mat-card-title>Registration of Customer</mat-card-title>
+        <!-- -------------------------------- END TITLE -------------------------------- -->
+        <!-- -------------------------------- IMAGE -------------------------------- -->
+        <mat-card-subtitle>
+          <img mat-card-lg-image src="../assets/Logo.png" alt="" />
+        </mat-card-subtitle>
+        <!-- ------------------------------ END IMAGE ------------------------------ -->
+        <mat-card-content>
+          <form (ngSubmit)="insertCustomer()">
+            <!-- ----------------------------- ATTRIBUTE 1 ----------------------------- -->
+            <input
+              type="hidden"
+              id="customerId"
+              name="customerId"
+              required
+              [(ngModel)]="customer.id"
+            />
+            <!-- --------------------------- END ATTRIBUTE 1 --------------------------- -->
+            <!-- ----------------------------- ATTRIBUTE 2 ----------------------------- -->
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Username</mat-label>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  matInput
+                  placeholder="Username"
+                  required
+                  [(ngModel)]="customer.username"
+                />
+                <mat-icon matSuffix>person</mat-icon>
+              </mat-form-field>
+            </p>
+            <!-- --------------------------- END ATTRIBUTE 2 --------------------------- -->
+            <!-- ----------------------------- ATTRIBUTE 3 ----------------------------- -->
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input
+                  type="text"
+                  id="password"
+                  name="password"
+                  matInput
+                  placeholder="Password"
+                  required
+                  [(ngModel)]="customer.password"
+                />
+                <mat-icon matSuffix>password</mat-icon>
+              </mat-form-field>
+            </p>
+            <!-- --------------------------- END ATTRIBUTE 3 --------------------------- -->
+            <!-- ----------------------------- ATTRIBUTE 4 ----------------------------- -->
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  matInput
+                  placeholder="you@example.com"
+                  required
+                  [(ngModel)]="customer.email"
+                />
+                <mat-icon matSuffix>email</mat-icon>
+              </mat-form-field>
+            </p>
+            <!-- --------------------------- END ATTRIBUTE 4 --------------------------- -->
+            <!-- ----------------------------- ATTRIBUTE 5 ----------------------------- -->
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>First name</mat-label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  matInput
+                  placeholder="First Name"
+                  required
+                  [(ngModel)]="customer.name"
+                />
+                <mat-icon matSuffix>badge</mat-icon>
+              </mat-form-field>
+            </p>
+            <!-- --------------------------- END ATTRIBUTE 5 --------------------------- -->
+            <!-- ----------------------------- ATTRIBUTE 6 ----------------------------- -->
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Last name</mat-label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  matInput
+                  placeholder="Last Name"
+                  required
+                  [(ngModel)]="customer.lastName"
+                />
+                <mat-icon matSuffix>badge</mat-icon>
+              </mat-form-field>
+            </p>
+            <!-- --------------------------- END ATTRIBUTE 6 --------------------------- -->
+            <!-- ----------------------------- ATTRIBUTE 7 ----------------------------- -->
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Image Url</mat-label>
+                <input
+                  type="text"
+                  id="imageUrl"
+                  name="imageUrl"
+                  matInput
+                  placeholder="Image Url"
+                  required
+                  [(ngModel)]="customer.imageUrl"
+                />
+                <mat-icon matSuffix>image</mat-icon>
+              </mat-form-field>
+            </p>
+            <!-- --------------------------- END ATTRIBUTE 7 --------------------------- -->
+            <!-- ----------------------------- ATTRIBUTE 8 ----------------------------- -->
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>DNI</mat-label>
+                <input
+                  type="text"
+                  id="dni"
+                  name="dni"
+                  matInput
+                  placeholder="DNI"
+                  required
+                  [(ngModel)]="customer.dni"
+                />
+                <mat-icon matSuffix>assignment_ind</mat-icon>
+              </mat-form-field>
+            </p>
+            <!-- --------------------------- END ATTRIBUTE 8 --------------------------- -->
+            <!-- ----------------------------- ATTRIBUTE 9 ----------------------------- -->
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Gender</mat-label>
+                <input
+                  type="text"
+                  id="gender"
+                  name="gender"
+                  matInput
+                  placeholder="Gender"
+                  required
+                  [(ngModel)]="customer.gender"
+                />
+                <mat-icon matSuffix>male</mat-icon>
+              </mat-form-field>
+            </p>
+            <!-- --------------------------- END ATTRIBUTE 9 --------------------------- -->
+            <!-- ----------------------------- ATTRIBUTE 10 ----------------------------- -->
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Birth Day</mat-label>
+                <input
+                  type="text"
+                  id="birthDay"
+                  name="birthDay"
+                  matInput
+                  placeholder="Birth Day"
+                  required
+                  [(ngModel)]="customer.birthDay"
+                />
+                <mat-icon matSuffix>cake</mat-icon>
+              </mat-form-field>
+            </p>
+            <!-- --------------------------- END ATTRIBUTE 10 --------------------------- -->
+            <!-- ------------------------------- BUTTON -------------------------------- -->
+            <div class="button-center">
+              <button mat-stroked-button color="primary" type="submit">
+                Sign Up
+              </button>
+            </div>
+            <!-- ------------------------------- END BUTTON -------------------------------- -->
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-tab>
+  <!-- ----------------------------- END SIGN UP ----------------------------- -->
+</mat-tab-group>
