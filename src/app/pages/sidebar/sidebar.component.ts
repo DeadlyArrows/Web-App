@@ -9,7 +9,7 @@ import { CustomerService } from 'src/app/service/customer.service';
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit {
-  id: number = 0;
+  userId: number = 0;
   customer: Customer = new Customer();
 
   constructor(
@@ -19,8 +19,8 @@ export class SidebarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'];
-    this.customerService.getCustomerById(this.id).subscribe(
+    this.userId = this.route.snapshot.params['userId'];
+    this.customerService.getCustomerById(this.userId).subscribe(
       (datos) => {
         console.log(datos);
         this.customer = datos;
@@ -30,7 +30,7 @@ export class SidebarComponent implements OnInit {
   }
 
   loadCustomerData() {
-    this.customerService.getCustomerById(this.id).subscribe((customer) => {
+    this.customerService.getCustomerById(this.userId).subscribe((customer) => {
       console.log(customer);
       this.customer = customer;
     });

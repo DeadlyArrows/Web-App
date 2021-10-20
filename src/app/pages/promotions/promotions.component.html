@@ -1,0 +1,29 @@
+<mat-grid-list cols="3" rowHeight="31rem">
+  <mat-grid-tile rowspan="1" *ngFor="let offer of offers">
+    <mat-card class="vehicle-card">
+      <mat-card-header>
+        <mat-card-title> {{ offer.offerName }} - </mat-card-title>
+        <mat-card-subtitle
+          >{{ offer.startDate }} - {{ offer.endDate }}</mat-card-subtitle
+        >
+      </mat-card-header>
+      <img
+        mat-card-image
+        class="image-card"
+        src="{{ offer.imageUrl }}"
+        alt="{{ offer.offerName }}"
+      />
+      <mat-card-content>
+        <p>
+          {{ offer.description }}
+        </p>
+        <p>
+            {{ offer.offerPrice }}
+        </p>
+      </mat-card-content>
+      <!-- <mat-card-actions>
+        <button mat-button>{{ offer.offerPrice }}</button>
+      </mat-card-actions> -->
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

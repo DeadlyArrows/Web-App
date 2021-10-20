@@ -2,9 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
 import { delay } from 'rxjs/operators';
-import { Customer } from 'src/app/model/customer';
+// import { Customer } from 'src/app/model/customer';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CustomerService } from 'src/app/service/customer.service';
+// import { CustomerService } from 'src/app/service/customer.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,25 +14,25 @@ import { CustomerService } from 'src/app/service/customer.service';
 export class DashboardComponent implements OnInit {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
-  id: number = 0;
-  customer: Customer = new Customer();
+  // userId: number = 0;
+  // customer: Customer = new Customer();
 
   constructor(
     private observer: BreakpointObserver,
     private route: ActivatedRoute,
     private router: Router,
-    private customerService: CustomerService
+    // private customerService: CustomerService
   ) {}
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'];
-    this.customerService.getCustomerById(this.id).subscribe(
-      (datos) => {
-        console.log(datos);
-        this.customer = datos;
-      },
-      (error) => console.log(error)
-    );
+    // this.userId = this.route.snapshot.params['userId'];
+    // this.customerService.getCustomerById(this.userId).subscribe(
+    //   (datos) => {
+    //     console.log(datos);
+    //     this.customer = datos;
+    //   },
+    //   (error) => console.log(error)
+    // );
   }
 
   ngAfterViewInit() {
@@ -48,12 +48,5 @@ export class DashboardComponent implements OnInit {
           this.sidenav.open();
         }
       });
-  }
-  
-  loadCustomerData() {
-    this.customerService.getCustomerById(this.id).subscribe((customer) => {
-      console.log(customer);
-      this.customer = customer;
-    });
   }
 }

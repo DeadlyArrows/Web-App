@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
     this.customerService
       .getAddressesByEmailAndPassword(this.email, this.password)
       .subscribe((customer) => {
-        // console.log(customer);
         this.customer = customer;
         this.router.navigate(['dashboard', customer.id]);
       });

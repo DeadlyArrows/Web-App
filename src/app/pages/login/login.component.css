@@ -1,3 +1,7 @@
+.color-background{
+  background-color: black;
+}
+
 .toolbar {
   display: flex;
   justify-content: center;
