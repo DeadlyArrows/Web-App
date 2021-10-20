@@ -1,13 +1,29 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { SignInComponent } from './pages/sign-in/sign-in.component';
-import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { LoginComponent } from './pages/login/login.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { RentComponent } from './pages/rent/rent.component';
+import { MyVehiclesComponent } from './pages/my-vehicles/my-vehicles.component';
+import { PromotionsComponent } from './pages/promotions/promotions.component';
+import { SubscriptionsComponent } from './pages/subscriptions/subscriptions.component';
+import { ConfigurationComponent } from './pages/configuration/configuration.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'sign-in', pathMatch: 'full' },
-  { path: 'sign-in', component: SignInComponent },
-  { path: 'sign-up', component: SignUpComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'dashboard/:userId',
+    component: DashboardComponent,
+    children: [
+      { path: '', redirectTo: 'rent', pathMatch: 'full' },
+      { path: 'rent', component: RentComponent },
+      { path: 'my-vehicles', component: MyVehiclesComponent },
+      { path: 'promotions', component: PromotionsComponent },
+      { path: 'subscriptions', component: SubscriptionsComponent },
+      { path: 'configurations', component: ConfigurationComponent },
+    ],
+  },
 ];
 
 @NgModule({

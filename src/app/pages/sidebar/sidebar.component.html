@@ -1,0 +1,37 @@
+<div *ngIf="customer">
+  <!-- ----------------------------- IMAGE USER ------------------------------ -->
+  <img class="avatar mat-elevation-z8" src="{{ customer.imageUrl }}" />
+  <!-- ------------------------------ USER NAME ------------------------------ -->
+  <h4 class="name">{{ customer.name }}</h4>
+  <mat-divider></mat-divider>
+  <!-- -------------------------------- HOME --------------------------------- -->
+  <a mat-button class="menu-button" href="nav-link" routerLink="rent">
+    <mat-icon class="material-icons">home</mat-icon>Home
+  </a>
+  <mat-divider></mat-divider>
+  <!-- ----------------------------- MY VEHICLES ----------------------------- -->
+  <a mat-button class="menu-button" href="nav-link" routerLink="my-vehicles">
+    <mat-icon class="material-icons">pedal_bike</mat-icon>My Vehicles
+  </a>
+  <mat-divider></mat-divider>
+  <!-- ----------------------------- PROMOTIONS ------------------------------ -->
+  <a mat-button class="menu-button" href="nav-link" routerLink="promotions">
+    <mat-icon class="material-icons">local_offer</mat-icon>Promotions
+  </a>
+  <mat-divider></mat-divider>
+  <!-- ---------------------------- SUBSCRIPTION ----------------------------- -->
+  <a mat-button class="menu-button" href="nav-link" routerLink="subscriptions">
+    <mat-icon class="material-icons">group_add</mat-icon>Subscription
+  </a>
+  <mat-divider></mat-divider>
+  <!-- ---------------------------- CONFIGURATION ---------------------------- -->
+  <a mat-button class="menu-button" href="nav-link" routerLink="configurations">
+    <mat-icon class="material-icons">settings</mat-icon>Configuration
+  </a>
+  <mat-divider></mat-divider>
+  <!-- ------------------------------- LOG OUT ------------------------------- -->
+  <a mat-button class="menu-button" href="nav-link" routerLink="">
+    <mat-icon class="material-icons">logout</mat-icon>Log-Out
+  </a>
+  <mat-divider></mat-divider>
+</div>

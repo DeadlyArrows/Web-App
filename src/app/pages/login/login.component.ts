@@ -4,11 +4,11 @@ import { Customer } from 'src/app/model/customer';
 import { CustomerService } from 'src/app/service/customer.service';
 
 @Component({
-  selector: 'app-sign-in',
-  templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.css'],
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css'],
 })
-export class SignInComponent implements OnInit {
+export class LoginComponent implements OnInit {
   email: string = '';
   password: string = '';
   customer: Customer = new Customer();
@@ -19,15 +19,31 @@ export class SignInComponent implements OnInit {
     private customerService: CustomerService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loadDataCustomers();
+  }
+
+  loadDataCustomers() {
+    this.customerService
+      .getCustomerList()
+      .subscribe((customers) => (this.customers = customers));
+  }
 
   searchAddressesByEmailAndPassword() {
     this.customerService
       .getAddressesByEmailAndPassword(this.email, this.password)
       .subscribe((customer) => {
-        console.log(customer);
         this.customer = customer;
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['dashboard', customer.id]);
       });
+  }
+
+  insertCustomer() {
+    this.customerService.createCustomer(this.customer).subscribe(
+      (datos) => console.log(datos),
+      (error) => console.log(error)
+    );
+    this.customer = new Customer();
+    this.router.navigate(['login']);
   }
 }

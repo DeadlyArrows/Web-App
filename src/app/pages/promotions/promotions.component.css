@@ -1,0 +1,15 @@
+.vehicle-card {
+  margin: 8px;
+  max-width: 450px;
+  max-height: 575px;
+}
+
+.image-card {
+  max-height: 250px;
+  min-width: 150px;
+  align-self: center;
+}
+
+.content-card {
+  min-height: 80px;
+}
